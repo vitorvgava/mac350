@@ -1,0 +1,44 @@
+# Gerenciador de Leituras
+
+Aplicação web simples para organizar leituras, registrar livros e
+autores e acompanhar avaliações de livros.
+
+Este projeto foi desenvolvido como parte do **Projeto de WebMAC**,
+utilizando **FastAPI, SQL, HTML, CSS, JavaScript e HTMX** para construir
+uma aplicação web completa com operações CRUD.
+
+# Sobre o projeto
+
+O Gerenciador de Leituras permite que usuários criem e gerenciem uma
+lista de livros que desejam ler ou já leram.\
+Cada livro pode ser associado a um autor e receber uma avaliação.
+
+A aplicação foi criada para demonstrar conceitos de:
+
+-   Integração entre Front-end e Back-end
+-   Manipulação de banco de dados com relacionamentos
+-   Uso do HTMX para CRUD dinâmico
+
+# Funcionalidades
+
+### Cadastro de Autores
+
+-   Criar novos autores
+-   Listar autores cadastrados
+
+### Cadastro de Livros
+
+-   Adicionar novos livros
+-   Associar livro a um autor
+-   Atribuir uma avaliação
+
+### Gerenciamento de Livros
+
+-   Visualizar lista de livros
+-   Atualizar avaliação de um livro
+-   Deletar livros da lista
+
+### Busca
+
+-   Buscar livros pelo nome
+-   Filtrar livros por autor
