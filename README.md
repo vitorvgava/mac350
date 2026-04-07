@@ -11,7 +11,7 @@ uma aplicação web completa com operações CRUD.
 # Sobre o projeto
 
 O Gerenciador de Leituras permite que usuários criem e gerenciem uma
-lista de livros que desejam ler ou já leram.\
+lista de livros que já leram.\
 Cada livro pode ser associado a um autor e receber uma avaliação.
 
 # Funcionalidades
