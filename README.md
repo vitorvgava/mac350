@@ -1,5 +1,5 @@
 # Gerenciador de Leituras
-
+Link do vídeo: https://drive.google.com/file/d/13qTkk75zIGYCJ4rU21bXLT-8P9Xr9nbc/view?usp=drive_link
 Aplicação web simples para organizar leituras, registrar livros e
 autores e acompanhar avaliações de livros.
 
