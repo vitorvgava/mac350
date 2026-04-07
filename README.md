@@ -5,7 +5,7 @@ Aplicação web simples para organizar leituras, registrar livros e
 autores e acompanhar avaliações de livros.
 
 Este projeto foi desenvolvido como parte do **Projeto de WebMAC**,
-utilizando **FastAPI, SQL, Bootstrap, JavaScript e HTMX** para construir
+utilizando **FastAPI, Bootstrap e HTMX** para construir
 uma aplicação web completa com operações CRUD.
 
 # Sobre o projeto
