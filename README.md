@@ -4,8 +4,8 @@ Link do vídeo: https://drive.google.com/file/d/13qTkk75zIGYCJ4rU21bXLT-8P9Xr9nb
 Aplicação web simples para organizar leituras, registrar livros e
 autores e acompanhar avaliações de livros.
 
-Este projeto foi desenvolvido como parte do **Projeto de WebMAC**,
-utilizando **FastAPI, Bootstrap e HTMX** para construir
+Este projeto foi desenvolvido como parte do Projeto de WebMAC,
+utilizando FastAPI, Bootstrap e HTMX para construir
 uma aplicação web completa com operações CRUD.
 
 # Sobre o projeto
@@ -37,3 +37,7 @@ Cada livro pode ser associado a um autor e receber uma avaliação.
 
 -   Buscar livros pelo nome
 -   Filtrar livros por autor
+
+# Uso de IA
+
+Foi utilizado código gerado por IA no front-end com Bootstrap e em partes do back-end onde aparece HX-Trigger no main.py e na linha "sa_relationship_kwargs={"cascade": "all, delete-orphan"}" de models.py
