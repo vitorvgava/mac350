@@ -1,0 +1,111 @@
+<div hx-get="/livros" 
+     hx-trigger="autorAdicionado from:body" 
+     hx-target="#livros-area" 
+     hx-swap="innerHTML">
+
+  {% if erro %}
+    <div class="alert alert-warning py-2">{{ erro }}</div>
+  {% endif %}
+
+  <form hx-post="/livros" 
+        hx-target="#livros-area" 
+        hx-swap="innerHTML" 
+        class="border rounded-3 p-3 mb-4 bg-light shadow-sm">
+    <h4 class="mb-3">Adicionar Livro</h4>
+    
+    <input type="hidden" name="busca" value="{{ busca }}">
+    <input type="hidden" name="autor_id_filtro" value="{{ autor_id_filtro if autor_id_filtro is not none else '' }}">
+
+    <div class="row g-2">
+      <div class="col-md-4">
+        <input type="text" name="titulo" class="form-control" placeholder="Título do livro" required>
+      </div>
+
+      <div class="col-md-2">
+        <input type="number" name="avaliacao" min="0" max="5" class="form-control" placeholder="Nota 0-5" required>
+      </div>
+
+      <div class="col-md-4">
+        <select name="autor_id" class="form-select" required>
+          <option value="">Selecione o autor...</option>
+          {% for autor in autores %}
+            <option value="{{ autor.id }}">{{ autor.nome }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-success w-100">Adicionar</button>
+      </div>
+    </div>
+  </form>
+
+  <h4 class="mb-3">Filtrar Livros</h4>
+  <form class="row g-2 mb-4" 
+        hx-get="/livros" 
+        hx-target="#livros-area" 
+        hx-swap="innerHTML">
+    <div class="col-md-5">
+      <input type="text" name="busca" class="form-control" placeholder="Buscar por título" value="{{ busca }}">
+    </div>
+
+    <div class="col-md-5">
+      <select name="autor_id" class="form-select">
+        <option value="">Todos os autores</option>
+        {% for autor in autores %}
+          <option value="{{ autor.id }}" {% if autor_id_filtro == autor.id %}selected{% endif %}>
+            {{ autor.nome }}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-outline-primary w-100">Filtrar</button>
+    </div>
+  </form>
+
+  <div class="table-responsive">
+    <table class="table table-hover align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Título</th>
+          <th>Autor</th>
+          <th>Avaliação</th>
+          <th class="text-end">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for livro in livros %}
+          <tr id="livro-{{ livro.id }}">
+            <td class="fw-bold">{{ livro.titulo }}</td>
+            <td>{{ livro.autor.nome }}</td>
+            <td>{{ livro.avaliacao }} / 5</td>
+            <td class="text-end">
+              <div class="btn-group">
+                <button class="btn btn-sm btn-outline-primary" 
+                        hx-get="/livros/{{ livro.id }}/editar-nota" 
+                        hx-target="#livro-{{ livro.id }}" 
+                        hx-swap="outerHTML">
+                  Reavaliar
+                </button>
+                
+                <button class="btn btn-sm btn-outline-danger" 
+                        hx-delete="/livros/{{ livro.id }}?busca={{ busca }}&autor_id_filtro={{ autor_id_filtro if autor_id_filtro is not none else '' }}" 
+                        hx-target="#livros-area" 
+                        hx-confirm="Deseja realmente excluir este livro?"
+                        hx-swap="innerHTML">
+                  Excluir
+                </button>
+              </div>
+            </td>
+          </tr>
+        {% else %}
+          <tr>
+            <td colspan="4" class="text-center text-muted py-4">Nenhum livro cadastrado ou encontrado.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Login - JupiterWeb</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .faixa-azul {
+        background-color: #0f6a7b;
+        height: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .faixa-azul img {
+        height: 80px;
+    }
+
+    .faixa-clara {
+        background-color: #6ec1c8;
+        height: 40px;
+    }
+
+    .faixa-amarela {
+        background-color: #f4a621;
+        text-align: center;
+        padding: 15px;
+        font-weight: bold;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    .login-box {
+        border: 1px solid #ccc;
+        padding: 20px;
+        width: 300px;
+        border-radius: 5px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #0f6a7b;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    input {
+        margin: 8px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+    }
+
+    input:focus {
+        border-color: #f4a621;
+        outline: none;
+    }
+
+    button {
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #0f6a7b;
+        color: white;
+    }
+
+    button:hover {
+        background-color: #084d58;
+    }
+
+    .links {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .links a {
+        display: block;
+        text-decoration: none;
+        color: #0f6a7b;
+        margin: 5px 0;
+    }
+
+    .links a:hover {
+        color: #f4a621;
+    }
+
+    footer {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 14px;
+        padding: 10px;
+        border-top: 1px solid #ccc;
+    }
+
+    @media (max-width: 500px) {
+        .login-box {
+            width: 90%;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+    <div class="faixa-azul">
+        <img src="USP.jpg">
+    </div>
+
+    <div class="faixa-clara"></div>
+
+    <div class="faixa-amarela">
+        Universidade de São Paulo<br>
+    </div>
+
+    <div class="container">
+        <div class="login-box">
+            <h2>Login</h2>
+
+            <form action="#">
+                <input type="text" placeholder="Número USP">
+                <input type="password" placeholder="Senha">
+
+                <button type="submit">Entrar</button>
+            </form>
+
+            <div class="links">
+                <a href="#">Esqueci a senha</a>
+                <a href="https://www5.usp.br/">Site da USP</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        © 2026 - USP | JupiterWeb
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<div hx-get="/autores" 
+     hx-trigger="autorAdicionado from:body" 
+     hx-target="#autores-area" 
+     hx-swap="innerHTML">
+
+  <h4 class="mb-3">Autores</h4>
+
+  {% if erro %}
+    <div class="alert alert-warning py-2">{{ erro }}</div>
+  {% endif %}
+
+  <form hx-post="/autores" 
+        hx-target="#autores-area" 
+        hx-swap="innerHTML" 
+        class="input-group mb-3">
+    <input type="text" name="nome" class="form-control" placeholder="Nome do autor" required>
+    <button type="submit" class="btn btn-primary">Adicionar</button>
+  </form>
+
+  <div class="list-group shadow-sm">
+    {% for autor in autores %}
+      <div class="list-group-item d-flex justify-content-between align-items-center bg-white">
+        <div>
+          <span class="fw-bold">{{ autor.nome }}</span>
+          <br>
+          <small class="text-muted">{{ autor.livros|length }} livro(s) cadastrado(s)</small>
+        </div>
+
+        <button class="btn btn-sm btn-outline-danger"
+                hx-delete="/autores/{{ autor.id }}"
+                hx-target="#autores-area"
+                hx-confirm="Tem certeza? Isso excluirá o autor e TODOS os seus livros vinculados!"
+                hx-swap="innerHTML">
+          Excluir
+        </button>
+      </div>
+    {% else %}
+      <div class="list-group-item text-center text-muted py-3">
+        Nenhum autor cadastrado.
+      </div>
+    {% endfor %}
+  </div>
+</div>
